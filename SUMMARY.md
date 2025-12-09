@@ -57,4 +57,4 @@
   * [Script collections](appendices/script-collections.md)
   * [Teaching materials](appendices/teaching-materials.md)
   * [Links to external docs](appendices/links-to-external-docs.md)
-  * [Try]
+  * Try
