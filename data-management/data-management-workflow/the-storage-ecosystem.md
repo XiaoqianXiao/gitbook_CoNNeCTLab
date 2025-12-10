@@ -116,4 +116,6 @@ _These locations are temporary workspaces. Data here is transient, changing, or 
 * Storage Policy: "System of Record" (Data originates here). strictly NO permanent storage of exported PHI on local laptops.
 * Sync Routine (Export): Exported as `.csv` or `.tsv` to Lab Server (`DATA/sourcedata/behavioral/`) for analysis every-week?
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
