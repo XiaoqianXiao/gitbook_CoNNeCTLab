@@ -8,7 +8,7 @@ We utilize specific storage locations for specific tasks to ensure data safety a
 
 Rule of Thumb:
 
-* Storage Locations are for safe-keeping and "Sources of Truth."
+* Storage Locations are for safe-keeping and "Sources of Truth"
 * Active Locations are for computing, coding, and writing.
 
 <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
