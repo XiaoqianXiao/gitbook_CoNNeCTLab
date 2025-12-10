@@ -1,3 +1,7 @@
+---
+description: How about data on redcap?
+---
+
 # The Storage Ecosystem
 
 We utilize specific storage locations for specific tasks to ensure data safety and efficiency. We do not duplicate the entire directory tree everywhere.
@@ -28,8 +32,8 @@ _These locations are primarily for data preservation. Treat files here as the "M
     ```
 * Note: We do not store raw MRI data here.
 * Sync Routine:&#x20;
-  * Behavioral data is uploaded here immediately (within 24 hours after gathered).&#x20;
-  * Final analysis results are pulled back here for safekeeping.
+  * Behavioral data is uploaded here immediately (within 24 hours after gathered by experimenter).&#x20;
+  * Final analysis results are pulled back here for safekeeping (timeline?).
 
 ### **2. Flywheel (MRI Master Database)**
 
@@ -43,6 +47,7 @@ _These locations are primarily for data preservation. Treat files here as the "M
         └── rawdata/          # BIDS-converted NIfTI files
     ```
 * Key Feature: BIDS curation and "Gears" (containers) for initial QC/preprocessing.
+* Sync Routine: MRI data is uploaded here immediately (within 24 hours after gathered by CNH).&#x20;
 
 ### **3. UW SharePoint (Disaster Recovery)**
 
@@ -57,6 +62,7 @@ _These locations are primarily for data preservation. Treat files here as the "M
         └── rawdata/          # The Standard (BIDS NIfTIs & TSVs)
         └── derivatives/  #Final results synced back from Hyak
     ```
+* Sync Routine: Once a month (eg. last work day of each month by ?)
 
 ***
 
@@ -78,6 +84,7 @@ _These locations are temporary workspaces. Data here is transient, changing, or 
     │   └── derivatives/      # Output of pipelines (preproc, stats)
     └── CODE/                 # Analysis scripts (Pulled from GitHub)
     ```
+* Sync Routine: Once a month for fMRIPrep output (eg. last work day of each month by ?)
 
 ### **2. GitHub (Code Versioning)**
 
@@ -102,3 +109,11 @@ _These locations are temporary workspaces. Data here is transient, changing, or 
     ├── ADMIN/                # IRB protocols, Grant text, Schedules
     └── MANUSCRIPT/           # Drafts, Tables, Figures for papers
     ```
+
+### **4.** UW REDCap **(**&#x44;emographics & Clinical/Survey Databas&#x65;**)** <mark style="color:red;">TBD</mark>
+
+* Role: The "Source of Truth" for Participant PHI, Demographics, and Survey responses.
+* Storage Policy: "System of Record" (Data originates here). strictly NO permanent storage of exported PHI on local laptops.
+* Sync Routine (Export): Exported as `.csv` or `.tsv` to Lab Server (`DATA/sourcedata/behavioral/`) for analysis every-week?
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>

@@ -1,29 +1,83 @@
 # The Data Lifecycle Routine
 
-_(A flow chart showing: MRI Scanner -> Lab Server. Then splitting: Server -> SharePoint (Backup) and Server -> Hyak (Process) -> Server (Results) -> Drive (Figures))_
+## **Phase 1: Data Acquisition & Ingestion (Daily/Weekly)**
 
-Follow this routine for every new subject acquired.
+_The "Birth" of the data. The goal here is immediate capture in the correct "Source of Truth."_
 
-## **Step 1: Ingestion (Day 0)**
+1. Neuroimaging Data (MRI)
+   * Action: Scanner sends DICOMs directly to Flywheel.
+   * Timeline: Automatic or within 24 hours of scan.
+   * Status: Flywheel becomes the _Master Copy_ for MRI. BIDS conversion and Initial QC happen here.
+2. Behavioral Task Data (Psychopy/Matlab)
+   * Action: Experimenter uploads raw log files from the testing laptop to The Lab Server (`DATA/sourcedata/behavioral_logs/`).
+   * Timeline: Immediately after data collection (max 24 hours).
+   * Status: Lab Server becomes the _Master Copy_ for behavioral logs.
+3. Clinical & Demographic Data
+   * Action: Data entered directly into UW REDCap via eCRF or participant survey link.
+   * Timeline: Real-time during the visit.
+   * Status: REDCap is the _System of Record_. No PHI is saved to local disks.
 
-1. Transfer: Move data from the MRI Scanner/Behavioral PC to the Lab Server (`DATA/sourcedata/`).
-2. Conversion: Run `dcm2bids` on the Lab Server to generate `DATA/rawdata/`.
-3. De-identification: Verify no PHI exists in `rawdata`.
+***
 
-### **Step 2: Sync & Backup (Day 1)**
+## **Phase 2: Aggregation & Pre-Processing (Pre-Analysis)**
 
-1. SharePoint Sync: Immediately upload the new `sourcedata` and `rawdata` to SharePoint.
-   * _Why?_ If the server crashes tomorrow, we can rebuild. If we lose the DICOMs, the money is wasted.
-2. Code Push: Push any changes in `CODE/` to GitHub/GitLab.
+_Preparing the data for the compute cluster. Merging streams._
 
-**Step 3: Processing (Day 2+)**
+1. The "Clinical Export"
+   * Action: Export sanitized demographics/survey scores from REDCap as `.csv` or `.tsv`.
+   * Destination: Upload to The Lab Server (`DATA/sourcedata/redcap_exports/`).
+2. Code Updates
+   * Action: Develop analysis scripts locally.
+   * Destination: Push changes to GitHub.
+   * Constraint: strictly NO data files in the commit.
 
-1. Transfer to Hyak: `rsync` the BIDS data for the specific subject to Hyak's temporary scratch space.
-2. Execution: Run the pipeline (e.g., fMRIPrep) on Hyak.
-3. Return: `rsync` the results (`DATA/derivatives/`) from Hyak back to the Lab Server.
-4. Cleanup: Delete the raw BIDS data from Hyak to save space/cost.
+***
 
-**Step 4: Dissemination (Project End)**
+## **Phase 3: Active Computation (The "Workhorse" Cycle)**
 
-1. Figure Generation: Run notebooks on the Lab Server to generate plots.
-2. Drive Sync: Upload the final plots from `MANUSCRIPT/figures/` to Google Drive for the team to write the paper.
+_Moving data to the scratch space for heavy lifting._
+
+1. Staging on Hyak
+   * Pull Code: `git pull` from GitHub to Hyak `CODE/` directory.
+   * Pull Data:
+     * Download BIDS NIfTIs from Flywheel -> Hyak.
+     * Download Behavioral/REDCap logs from Lab Server -> Hyak.
+2. Execution
+   * Run pipelines (fMRIPrep, FSL, etc.).
+   * Outputs generate in Hyak `DATA/derivatives/`.
+   * _Note:_ Intermediate files (scrub space) are left to expire (30-day auto-delete).
+
+***
+
+## **Phase 4: Sync, Backup & Archive (Monthly Routine)**
+
+_The "Safety Net" protocol. This ensures that if Hyak or the Lab Server fails, nothing is lost._
+
+The "Last Work Day of the Month" Checklist:
+
+1. Save the Results (Hyak -> Server)
+   * Action: Copy final derivatives (stats maps, preprocessed timeseries) from Hyak to The Lab Server (`DATA/derivatives/`).
+   * Reason: Hyak is scratch space; the Lab Server is the permanent home for results.
+2. The Disaster Backup (Server -> SharePoint)
+   * Action: Sync the Lab Server `DATA/` folder to UW SharePoint.
+   * Scope: This captures the Behavioral Logs, REDCap Exports, and the newly synced Derivatives.
+3. The MRI Backup (Flywheel -> SharePoint)
+   * Action: (Optional/Automated) Ensure new Flywheel datasets are mirrored to SharePoint `sourcedata/`.
+
+***
+
+## **Phase 5: Publication & Dissemination**
+
+_Writing the paper and freezing the project._
+
+1. Drafting
+   * Location: Google Drive (`MANUSCRIPT/` folder).
+   * Content: Draft text, figures, and grant details. No patient data.
+2. Final Archival
+   * Action: Upon paper acceptance, the final manuscript (PDF) and the "frozen" code commit hash are saved to The Lab Server (`MANUSCRIPT/` and `CODE/`).
+   * Outcome: The project folder on the Lab Server now contains the complete history: Raw Behavioral + Sanitized Clinical + Final Derivatives + Final Paper.
+
+
+
+
+
