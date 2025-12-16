@@ -24,19 +24,26 @@ Project_Name/
 │   │   ├── ClinicalAccessment/
 │   │   ├── TaskBehavioral/
 │   │   └── MRI   
-│   │         
+│   │        
 │   ├── rawdata/              # 2. The Peeled Potato. BIDS-converted NIfTI files (Immutable)
 │   │   ├── dataset_description.json
-│   │   ├── sub-001/
-│   │   │   ├── anat/
-│   │   │   └── func/
-│   │   └── participants.tsv
+│   │   ├── participants.tsv
+│   │   └── sub-001/
+│   │       ├── anat/
+│   │       │   ├── sub-001_inplaneT2.nii.gz
+│   │       │   └── sub-001_T1w.nii.gz
+│   │       └── func/
+│   │           ├── sub-01_task-balloonanalogrisktask_run-01_bold.nii.gz
+│   │           └── sub-01_task-balloonanalogrisktask_run-01_events.tsv
 │   │
-│   └── derivatives/          # 3. Processed Data (The result of pipelines)
-│       ├── MRIQC/            # QC outputs
+│   └── derivatives/          # 3. Suan la tu dou si. Processed Data (The result of pipelines)
+│       ├── mriqc/            # QC outputs
 │       ├── fmriprep/         # Preprocessing outputs
 │       ├── freesurfer/       # Surface reconstruction
-│       └── first_level/      # Subject-level GLM results
+│       └── univariate_analysis/
+│           ├── first_level/  # Subject-level single run GLM results
+│           ├── second_level/ # Subject-level results
+│           └── third_level/  # Group-level results
 │
 ├── CODE/                     # Analysis Scripts (Version Controlled)
 │   ├── stimuli/              # PsychoPy/E-Prime scripts used during acquisition
