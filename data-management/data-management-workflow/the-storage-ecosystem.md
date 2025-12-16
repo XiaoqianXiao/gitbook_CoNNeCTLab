@@ -11,7 +11,7 @@ Rule of Thumb:
 * Storage Locations are for safe-keeping and "Sources of Truth"
 * Active Locations are for computing, coding, and writing.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -27,15 +27,12 @@ _These locations are primarily for data preservation. Treat files here as the "M
     ```
     Project_Name/
     ├── ADMIN/
-    ├── DATA/
-    │   ├── sourcedata/       # Behavioral Logs Only
-    │   └── rawdata/          # Behavioral TSVs Only
-    └── MANUSCRIPT/           # Archive of final papers
+    └── DATA/
+        └── sourcedata/       # Demographics, Clinical Accessments and Task Behavioral 
     ```
 * Note: We do not store raw MRI data here.
 * Sync Routine:&#x20;
   * Behavioral data is uploaded here immediately (within 24 hours after gathered by experimenter).&#x20;
-  * Final analysis results are pulled back here for safekeeping (timeline?).
 
 ### **2. Flywheel (MRI Master Database)**
 
@@ -45,8 +42,8 @@ _These locations are primarily for data preservation. Treat files here as the "M
     ```
     Project_Name/
     └── DATA/
-        ├── sourcedata/       # Raw DICOMs from scanner
-        └── rawdata/          # BIDS-converted NIfTI files
+        └── sourcedata/       # Raw DICOMs from scanner
+      
     ```
 * Key Feature: BIDS curation and "Gears" (containers) for initial QC/preprocessing.
 * Sync Routine: MRI data is uploaded here immediately (within 24 hours after gathered by CNH).&#x20;
@@ -60,11 +57,11 @@ _These locations are primarily for data preservation. Treat files here as the "M
     ```
     Project_Name/
     └── DATA/
-        ├── sourcedata/       # The Safety Net (DICOMs & Behavioral Logs)
+        ├── sourcedata/       # The Safety Net (DICOMs Demographics, Clinical Accessments and Task Behavioral)
         └── rawdata/          # The Standard (BIDS NIfTIs & TSVs)
-        └── derivatives/  #Final results synced back from Hyak
+        └── derivatives/  # Final results synced back from Hyak
     ```
-* Sync Routine: Once a month (eg. last work day of each month by ?)
+* Sync Routine: every half a year
 
 ***
 
@@ -83,6 +80,8 @@ _These locations are temporary workspaces. Data here is transient, changing, or 
     ```
     Project_Name/
     ├── DATA/
+    │   ├── sourcedata/       # source to be process: DICOMs, Demographics, Clinical Accessments and Task Behavioral
+    │   ├── rawdata/          # The Standard (BIDS NIfTIs & TSVs, standard and safe to share version)
     │   └── derivatives/      # Output of pipelines (preproc, stats)
     └── CODE/                 # Analysis scripts (Pulled from GitHub)
     ```
