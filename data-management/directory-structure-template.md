@@ -20,6 +20,11 @@ Project_Name/
 │
 ├── DATA/                     # The Core Data Storage
 │   ├── sourcedata/           # 1. The Muddy Potato. RAW files exactly as exported (DICOMs, E-Prime logs)
+│   │   ├── Demographics/
+│   │   ├── ClinicalAccessment/
+│   │   ├── TaskBehavioral/
+│   │   └── MRI   
+│   │         
 │   ├── rawdata/              # 2. The Peeled Potato. BIDS-converted NIfTI files (Immutable)
 │   │   ├── dataset_description.json
 │   │   ├── sub-001/
@@ -28,6 +33,7 @@ Project_Name/
 │   │   └── participants.tsv
 │   │
 │   └── derivatives/          # 3. Processed Data (The result of pipelines)
+│       ├── MRIQC/            # QC outputs
 │       ├── fmriprep/         # Preprocessing outputs
 │       ├── freesurfer/       # Surface reconstruction
 │       └── first_level/      # Subject-level GLM results
