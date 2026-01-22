@@ -11,7 +11,7 @@ Rule of Thumb:
 * Storage Locations are for safe-keeping and "Sources of Truth"
 * Active Locations are for computing, coding, and writing.
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -28,11 +28,13 @@ _These locations are primarily for data preservation. Treat files here as the "M
     Project_Name/
     ├── ADMIN/
     └── DATA/
-        └── sourcedata/       # Demographics, Clinical Accessments and Task Behavioral 
+        └── sourcedata/       # demographics, clinical_accessments and task_behavioral 
     ```
 * Note: We do not store raw MRI data here.
 * Sync Routine:&#x20;
   * Behavioral data is uploaded here immediately (within 24 hours after gathered by experimenter).&#x20;
+  * smb://172.25.226.40/FangLab/Lab Studies/R01 - Contributions of SFA/DATA/sourcedata/behavioral/self\_others
+  * smb://172.25.226.40/FangLab/Lab Studies/R01 - Contributions of SFA/DATA/sourcedata/behavioral/ANT
 
 ### **2. Flywheel (MRI Master Database)**
 
@@ -42,7 +44,7 @@ _These locations are primarily for data preservation. Treat files here as the "M
     ```
     Project_Name/
     └── DATA/
-        └── sourcedata/       # Raw DICOMs from scanner
+        └── sourcedata/       # Raw DICOMs from scanner(dimcom)
       
     ```
 * Key Feature: BIDS curation and "Gears" (containers) for initial QC/preprocessing.
@@ -61,7 +63,9 @@ _These locations are primarily for data preservation. Treat files here as the "M
         └── rawdata/          # The Standard (BIDS NIfTIs & TSVs)
         └── derivatives/  # Final results synced back from Hyak
     ```
-* Sync Routine: every half a year
+* Sync Routine:&#x20;
+  * assessment video is uploaded here immediately (within 24 hours after gathered by experimenter):[https://uwnetid.sharepoint.com/:f:/r/sites/i-focus\_fang\_lab/Shared%20Documents/ifocus/DATA/sourcedata/assessment?csf=1\&web=1\&e=dwcgk5](https://uwnetid.sharepoint.com/:f:/r/sites/i-focus_fang_lab/Shared%20Documents/ifocus/DATA/sourcedata/assessment?csf=1\&web=1\&e=dwcgk5) (by rater)
+  * all other data should be uploaded here by data manager every month (last work day of every month by data manager)
 
 ***
 
@@ -85,7 +89,7 @@ _These locations are temporary workspaces. Data here is transient, changing, or 
     │   └── derivatives/      # Output of pipelines (preproc, stats)
     └── CODE/                 # Analysis scripts (Pulled from GitHub)
     ```
-* Sync Routine: Once a month for fMRIPrep output (eg. last work day of each month by ?)
+* Sync Routine: Once a month for fMRIPrep output (last work day of each month by data manager)
 
 ### **2. GitHub (Code Versioning)**
 
@@ -107,7 +111,7 @@ _These locations are temporary workspaces. Data here is transient, changing, or 
 
     ```
     Project_Name/
-    ├── ADMIN/                # IRB protocols, Grant text, Schedules
+    ├── ADMIN/                # Grant text, Schedules
     └── MANUSCRIPT/           # Drafts, Tables, Figures for papers
     ```
 
@@ -115,5 +119,5 @@ _These locations are temporary workspaces. Data here is transient, changing, or 
 
 * Role: The "Source of Truth" for Participant PHI, Demographics, and Survey responses.
 * Storage Policy: "System of Record" (Data originates here). strictly NO permanent storage of exported PHI on local laptops.
-* Sync Routine (Export): Exported as `.csv` or `.tsv` to Lab Server (`DATA/sourcedata/behavioral/`) for analysis every-week?
+* Sync Routine (Export): Exported as `.csv` or `.tsv` to Hyak (`DATA/sourcedata/behavioral/`) for analysis every month (last work day of each month by data manager).
 
