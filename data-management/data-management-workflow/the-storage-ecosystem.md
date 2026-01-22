@@ -64,8 +64,8 @@ _These locations are primarily for data preservation. Treat files here as the "M
         └── derivatives/  # Final results synced back from Hyak
     ```
 * Sync Routine:&#x20;
-  * assessment video is uploaded here immediately (within 24 hours after gathered by experimenter):[https://uwnetid.sharepoint.com/:f:/r/sites/i-focus\_fang\_lab/Shared%20Documents/ifocus/DATA/sourcedata/assessment?csf=1\&web=1\&e=dwcgk5](https://uwnetid.sharepoint.com/:f:/r/sites/i-focus_fang_lab/Shared%20Documents/ifocus/DATA/sourcedata/assessment?csf=1\&web=1\&e=dwcgk5) (by rater)
-  * all other data should be uploaded here by data manager every month (last work day of every month by data manager)
+  * assessment video is uploaded here immediately (within 24 hours after gathered by rater):[https://uwnetid.sharepoint.com/:f:/r/sites/i-focus\_fang\_lab/Shared%20Documents/ifocus/DATA/sourcedata/assessment?csf=1\&web=1\&e=dwcgk5](https://uwnetid.sharepoint.com/:f:/r/sites/i-focus_fang_lab/Shared%20Documents/ifocus/DATA/sourcedata/assessment?csf=1\&web=1\&e=dwcgk5)&#x20;
+  * all other data should be uploaded here by data manager every half year (1/15; 7/15; by data manager)
 
 ***
 
@@ -82,14 +82,20 @@ _These locations are temporary workspaces. Data here is transient, changing, or 
 *   Contents
 
     ```
+    # in /gscratch/scrubbed/fanglab
     Project_Name/
     ├── DATA/
     │   ├── sourcedata/       # source to be process: DICOMs, Demographics, Clinical Accessments and Task Behavioral
     │   ├── rawdata/          # The Standard (BIDS NIfTIs & TSVs, standard and safe to share version)
     │   └── derivatives/      # Output of pipelines (preproc, stats)
     └── CODE/                 # Analysis scripts (Pulled from GitHub)
+    # in /gscratch/fang
+    Project_Name/
+    ├── DATA/
+    │   └── derivatives/      # Output of pipelines (preproc, stats)
+    └── CODE/                 # Analysis scripts (Pulled from GitHub)
     ```
-* Sync Routine: Once a month for fMRIPrep output (last work day of each month by data manager)
+* Sync Routine: Once a month (last work day of each month by data manager)
 
 ### **2. GitHub (Code Versioning)**
 
@@ -119,5 +125,5 @@ _These locations are temporary workspaces. Data here is transient, changing, or 
 
 * Role: The "Source of Truth" for Participant PHI, Demographics, and Survey responses.
 * Storage Policy: "System of Record" (Data originates here). strictly NO permanent storage of exported PHI on local laptops.
-* Sync Routine (Export): Exported as `.csv` or `.tsv` to Hyak (`DATA/sourcedata/behavioral/`) for analysis every month (last work day of each month by data manager).
+* Sync Routine (Export): Exported as `.csv` or `.tsv` to Hyak (`DATA/sourcedata/`demographics`/; or DATA/sourcedata/`clinical\_accessments`/`) for analysis every month (last work day of each month by data manager).
 
