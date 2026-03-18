@@ -21,7 +21,7 @@ _These locations are primarily for data preservation. Treat files here as the "M
 
 ### **1. The Lab Server (Central Hub)**
 
-* Role: The aggregator for non-imaging data and the final landing spot for analysis results.
+* Role: The aggregator for non-imaging data and the final landing spot for analysis results. <mark style="color:$danger;">No PHI</mark>.
 *   Contents:
 
     ```
@@ -75,7 +75,7 @@ _These locations are temporary workspaces. Data here is transient, changing, or 
 
 ### **1. Hyak (High-Performance Computing)**
 
-* Role: Heavy computation and pipeline execution (fMRIPrep, FSL, PyTorch).
+* Role: Heavy computation and pipeline execution (fMRIPrep, FSL, PyTorch). <mark style="color:$danger;">No PHI</mark>.
 * Storage Policy:&#x20;
   * Scratch Space: Final Code & Derivatives Only (Persistent during project).
   * Scrub Space: Temporal Code and intermediate results (Deleted automatically if not modified for 30 days).
@@ -99,7 +99,7 @@ _These locations are temporary workspaces. Data here is transient, changing, or 
 
 ### **2. GitHub (Code Versioning)**
 
-* Role: Version control, reproducibility, and script sharing.
+* Role: Version control, reproducibility, and script sharing. <mark style="color:$danger;">No PHI</mark>.
 * Storage Policy: "Code Only" (Strictly NO data).
 *   Directory Subset:
 
@@ -111,7 +111,7 @@ _These locations are temporary workspaces. Data here is transient, changing, or 
 
 ### **3. Google Drive (Collaboration)**
 
-* Role: Collaborative writing, administrative tracking, and presentations.
+* Role: Collaborative writing, administrative tracking, and presentations. <mark style="color:$danger;">No PHI</mark>.
 * Storage Policy: "Documents Only" (Strictly NO Patient Data/PHI).
 *   Directory Subset:
 
