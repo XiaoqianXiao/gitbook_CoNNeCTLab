@@ -58,6 +58,7 @@ _These locations are primarily for data preservation. Treat files here as the "M
 
     ```
     Project_Name/
+    ├── working_dir/
     └── DATA/
         ├── sourcedata/       # The Safety Net (DICOMs Demographics, Clinical Accessments and Task Behavioral)
         └── rawdata/          # The Standard (BIDS NIfTIs & TSVs)
