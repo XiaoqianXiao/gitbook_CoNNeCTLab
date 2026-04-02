@@ -56,14 +56,17 @@ _These locations are primarily for data preservation. Treat files here as the "M
 * Storage Policy: "Raw Assets Only" (No derivatives, no scratch files).
 *   Contents:
 
-    ```
-    Project_Name/
+    <pre><code>Project_Name/
     ├── working_dir/
     └── DATA/
-        ├── sourcedata/       # The Safety Net (DICOMs Demographics, Clinical Accessments and Task Behavioral)
-        └── rawdata/          # The Standard (BIDS NIfTIs & TSVs)
+        ├── sourcedata/       # The Safety Net (DICOMs, Demographics, Clinical Accessments and Task Behavioral)
+        │    ├── <a data-footnote-ref href="#user-content-fn-1">clinical_accessments</a>
+        │    ├── <a data-footnote-ref href="#user-content-fn-2">demographics</a>
+        │    ├── <a data-footnote-ref href="#user-content-fn-3">dicom</a>
+        │    └── <a data-footnote-ref href="#user-content-fn-4">task_behavioral</a>
+        ├── rawdata/          # The Standard (BIDS NIfTIs &#x26; TSVs)
         └── derivatives/  # Final results synced back from Hyak
-    ```
+    </code></pre>
 * Sync Routine:&#x20;
   * assessment video is uploaded here immediately (within 24 hours after gathered by rater):[https://uwnetid.sharepoint.com/:f:/r/sites/i-focus\_fang\_lab/Shared%20Documents/ifocus/DATA/sourcedata/assessment?csf=1\&web=1\&e=dwcgk5](https://uwnetid.sharepoint.com/:f:/r/sites/i-focus_fang_lab/Shared%20Documents/ifocus/DATA/sourcedata/assessment?csf=1\&web=1\&e=dwcgk5)&#x20;
   * all other data should be uploaded here by data manager every half year (1/15; 7/15; by data manager)
@@ -128,3 +131,12 @@ _These locations are temporary workspaces. Data here is transient, changing, or 
 * Storage Policy: "System of Record" (Data originates here). strictly NO permanent storage of exported PHI on local laptops.
 * Sync Routine (Export): Exported as `.csv` or `.tsv` to Hyak (`DATA/sourcedata/`demographics`/; or DATA/sourcedata/`clinical\_accessments`/`) for analysis every month (last work day of each month by data manager).
 
+
+
+[^1]: [https://uwnetid.sharepoint.com/:f:/r/sites/i-focus\_fang\_lab/Shared%20Documents/i-focus/DATA/sourcedata/clinical\_accessments?csf=1\&web=1\&e=HdqSa0](https://uwnetid.sharepoint.com/:f:/r/sites/i-focus_fang_lab/Shared%20Documents/i-focus/DATA/sourcedata/clinical_accessments?csf=1\&web=1\&e=HdqSa0)
+
+[^2]: [https://uwnetid.sharepoint.com/:f:/r/sites/i-focus\_fang\_lab/Shared%20Documents/i-focus/DATA/sourcedata/demographics?csf=1\&web=1\&e=6PRF4e](https://uwnetid.sharepoint.com/:f:/r/sites/i-focus_fang_lab/Shared%20Documents/i-focus/DATA/sourcedata/demographics?csf=1\&web=1\&e=6PRF4e)
+
+[^3]: [https://uwnetid.sharepoint.com/:f:/r/sites/i-focus\_fang\_lab/Shared%20Documents/i-focus/DATA/sourcedata/dicom?csf=1\&web=1\&e=rdQpSy](https://uwnetid.sharepoint.com/:f:/r/sites/i-focus_fang_lab/Shared%20Documents/i-focus/DATA/sourcedata/dicom?csf=1\&web=1\&e=rdQpSy)
+
+[^4]: [https://uwnetid.sharepoint.com/:f:/r/sites/i-focus\_fang\_lab/Shared%20Documents/i-focus/DATA/sourcedata/task\_behavioral?csf=1\&web=1\&e=OSIriY](https://uwnetid.sharepoint.com/:f:/r/sites/i-focus_fang_lab/Shared%20Documents/i-focus/DATA/sourcedata/task_behavioral?csf=1\&web=1\&e=OSIriY)
