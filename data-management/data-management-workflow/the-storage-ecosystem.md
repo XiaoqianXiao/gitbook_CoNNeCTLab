@@ -28,13 +28,13 @@ _These locations are primarily for data preservation. Treat files here as the "M
     Project_Name/
     ├── ADMIN/
     └── DATA/
-        └── sourcedata/       # demographics, clinical_accessments and task_behavioral 
+        └── sourcedata/       # task_behavioral 
     ```
 * Note: We do not store raw MRI data here.
 * Sync Routine:&#x20;
   * Behavioral data is uploaded here immediately (within 24 hours after gathered by experimenter).&#x20;
-  * smb://172.25.226.40/FangLab/Lab Studies/R01 - Contributions of SFA/DATA/sourcedata/behavioral/self\_others
-  * smb://172.25.226.40/FangLab/Lab Studies/R01 - Contributions of SFA/DATA/sourcedata/behavioral/ANT
+  * smb://172.25.226.40/FangLab/Lab Studies/R01 - Contributions of SFA/DATA/sourcedata/task\_behavioral/self\_others
+  * smb://172.25.226.40/FangLab/Lab Studies/R01 - Contributions of SFA/DATA/sourcedata/task\_behavioral/ANT
 
 ### **2. Flywheel (MRI Master Database)**
 
@@ -57,7 +57,7 @@ _These locations are primarily for data preservation. Treat files here as the "M
 *   Contents:
 
     <pre><code>Project_Name/
-    ├── working_dir/
+    ├── working_dir/ #Secure workspace for daily sensitive data handling
     └── DATA/
         ├── sourcedata/       # The Safety Net (DICOMs, Demographics, Clinical Accessments and Task Behavioral)
         │    ├── <a data-footnote-ref href="#user-content-fn-1">clinical_accessments</a>
