@@ -20,9 +20,9 @@ Project_Name/
 │
 ├── DATA/                     # The Core Data Storage
 │   ├── sourcedata/           # 1. The Muddy Potato. RAW files exactly as exported (DICOMs, E-Prime logs)
-│   │   ├── Demographics/
-│   │   ├── ClinicalAccessment/
-│   │   ├── Behavioral/
+│   │   ├── demographics/
+│   │   ├── clinical_accessment/
+│   │   ├── behavioral/
 │   │   └── MRI   
 │   │        
 │   ├── rawdata/              # 2. The Peeled Potato. BIDS-converted NIfTI files (Immutable)
