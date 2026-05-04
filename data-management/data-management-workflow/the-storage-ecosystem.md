@@ -11,7 +11,9 @@ Rule of Thumb:
 * Storage Locations are for safe-keeping and "Sources of Truth"
 * Active Locations are for computing, coding, and writing.
 
-<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -21,20 +23,14 @@ _These locations are primarily for data preservation. Treat files here as the "M
 
 ### **1. The Lab Server (Central Hub)**
 
-* Role: The aggregator for non-imaging data and the final landing spot for analysis results. <mark style="color:$danger;">No PHI</mark>.
+* Role: Keep documents for admin. <mark style="color:$danger;">No PHI</mark>.
 *   Contents:
 
     ```
     Project_Name/
-    ├── ADMIN/
-    └── DATA/
-        └── sourcedata/       # task_behavioral 
+    └──  ADMIN/
     ```
-* Note: We do not store raw MRI data here.
-* Sync Routine:&#x20;
-  * Behavioral data is uploaded here immediately (within 24 hours after gathered by experimenter).&#x20;
-  * smb://172.25.226.40/FangLab/Lab Studies/R01 - Contributions of SFA/DATA/sourcedata/task\_behavioral/self\_others
-  * smb://172.25.226.40/FangLab/Lab Studies/R01 - Contributions of SFA/DATA/sourcedata/task\_behavioral/ANT
+* Note: We do not store raw data here.
 
 ### **2. Flywheel (MRI Master Database)**
 
@@ -50,21 +46,26 @@ _These locations are primarily for data preservation. Treat files here as the "M
 * Key Feature: BIDS curation and "Gears" (containers) for initial QC/preprocessing.
 * Sync Routine: MRI data is uploaded here immediately (within 24 hours after gathered by CNH).&#x20;
 
-### **3. UW SharePoint (Disaster Recovery)**
+### **3. UW SharePoint (Behavioral, Clinical and Demographics cloud and Disaster Recovery)**
 
-* Role: Secure, HIPAA-compliant, immutable backup for ALL unrecoverable source data (MRI + Behavioral).
+* Role:&#x20;
+  * Secure, HIPAA-compliant, immutable backup for ALL unrecoverable source data (MRI + Behavioral + Clinical + Demographics).
+  * Secure, HIPAA-compliant, immutable backup for ALL unrecoverable raw data (MRI + Behavioral + Clinical + Demographics), processed to excluded HIP info and should be ready for share. &#x20;
 * Storage Policy: "Raw Assets Only" (No derivatives, no scratch files).
 *   Contents:
 
     <pre><code>Project_Name/
-    ├── working_dir/ #Secure workspace for daily sensitive data handling
     └── DATA/
         ├── sourcedata/       # The Safety Net (DICOMs, Demographics, Clinical Accessments and Task Behavioral)
         │    ├── <a data-footnote-ref href="#user-content-fn-1">clinical_accessments</a>
         │    ├── <a data-footnote-ref href="#user-content-fn-2">demographics</a>
-        │    ├── <a data-footnote-ref href="#user-content-fn-3">dicom</a>
-        │    └── <a data-footnote-ref href="#user-content-fn-4">task_behavioral</a>
+        │    ├── MRI(<a data-footnote-ref href="#user-content-fn-3">dicom</a>)
+        │    └── <a data-footnote-ref href="#user-content-fn-4">behavioral</a>
         ├── rawdata/          # The Standard (BIDS NIfTIs &#x26; TSVs)
+        │    ├── clinical_accessments
+        │    ├── demographics
+        │    ├── MRI(nifit)
+        │    └── behavioral  
         └── derivatives/  # Final results synced back from Hyak
     </code></pre>
 * Sync Routine:&#x20;
@@ -125,7 +126,16 @@ _These locations are temporary workspaces. Data here is transient, changing, or 
     └── MANUSCRIPT/           # Drafts, Tables, Figures for papers
     ```
 
-### **4.** UW REDCap **(**&#x44;emographics & Clinical/Survey Databas&#x65;**)** <mark style="color:red;">TBD</mark>
+### **4. UW SharePoint**
+
+* Role: Secure workspace for daily sensitive data handling.
+
+```
+Project_Name/
+└── working_dir/ #Secure workspace for daily sensitive data handling
+```
+
+### 5. UW REDCap **(**&#x44;emographics & Clinical/Survey Databas&#x65;**)** <mark style="color:red;">TBD</mark>
 
 * Role: The "Source of Truth" for Participant PHI, Demographics, and Survey responses.
 * Storage Policy: "System of Record" (Data originates here). strictly NO permanent storage of exported PHI on local laptops.
