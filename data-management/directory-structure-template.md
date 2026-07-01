@@ -20,22 +20,26 @@ Project_Name/
 │
 ├── DATA/                     # The Core Data Storage
 │   ├── sourcedata/           # 1. The Muddy Potato. RAW files exactly as exported (DICOMs, E-Prime logs)
-│   │   ├── demographics/
-│   │   ├── clinical_accessment/
-│   │   ├── behavioral/
-│   │   └── MRI   
-│   │        
+│       ├── demographics/
+│       ├── clinical_accessment/
+│       ├── behavioral/
+│       └── MRI   
+│            
 │   ├── rawdata/              # 2. The Peeled Potato. BIDS-converted NIfTI files (Immutable)
-│   │   ├── dataset_description.json
-│   │   ├── participants.tsv
-│   │   └── sub-001/
-│   │       ├── anat/
-│   │       │   ├── sub-001_inplaneT2.nii.gz
-│   │       │   └── sub-001_T1w.nii.gz
-│   │       └── func/
-│   │           ├── sub-01_task-balloonanalogrisktask_run-01_bold.nii.gz
-│   │           └── sub-01_task-balloonanalogrisktask_run-01_events.tsv
-│   │
+│       ├── demographics/
+│       ├── clinical_accessment/
+│       ├── behavioral/
+│       └── MRI 
+│           ├── dataset_description.json
+│           ├── participants.tsv
+│           └── sub-001/
+│               ├── anat/
+│               │   ├── sub-001_inplaneT2.nii.gz
+│               │   └── sub-001_T1w.nii.gz
+│               └── func/
+│                   ├── sub-01_task-balloonanalogrisktask_run-01_bold.nii.gz
+│                   └── sub-01_task-balloonanalogrisktask_run-01_events.tsv
+│   
 │   └── derivatives/          # 3. Suan la tu dou si. Processed Data (The result of pipelines)
 │       ├── mriqc/            # QC outputs
 │       ├── fmriprep/         # Preprocessing outputs
