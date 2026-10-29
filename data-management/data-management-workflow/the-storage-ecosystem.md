@@ -11,15 +11,15 @@ Rule of Thumb:
 * Storage Locations are for safe-keeping and "Sources of Truth"
 * Active Locations are for computing, coding, and writing.
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
-## Part 1: Active Use (The "Workhorses")
+## Part 1: Active Use&#x20;
 
 _These locations are temporary workspaces. Data here is the source, will be transient, changing, or being computed on._
 
-### **1. UW active SharePoint**
+### **1. UW active SharePoint (fang\_lab)**
 
 * Role: Admin; Secure workspace for daily sensitive data handling.
 
@@ -34,11 +34,11 @@ Sync Routine:&#x20;
 
 * assessment video is uploaded here immediately (within 24 hours after gathered by rater)
 
-### 2. UW REDCap **(**&#x44;emographics & Clinical/Survey Databas&#x65;**)** <mark style="color:red;">TBD</mark>
+### 2. UW REDCap **(**&#x44;emographics & Clinical/Survey Databas&#x65;**)**
 
 * Role: The "Source of Truth" for Participant PHI, Demographics, and Survey responses.
 * Storage Policy: "System of Record" (Data originates here). strictly NO permanent storage of exported PHI on local laptops. Never delete the original data.&#x20;
-* Sync Routine (Export): On the day of data collection, the RA must verify data completeness. Data manager will upload the data to SharePoint every half a year (1/15; 7/15; by data manager).
+* Sync/QA Routine (Export): On the day of data collection, the RA must verify data completeness.&#x20;
 
 ### 3. Lab laptop **(**&#x42;ehavioral Databas&#x65;**)** <mark style="color:red;">TBD</mark>
 
@@ -50,7 +50,7 @@ Sync Routine:&#x20;
 
 * Role: The "Source of Truth" for MRI data.
 * Storage Policy: "System of Record" (Data originates here). Never delete the original data.
-* Sync Routine (Export):  On the day of data collection, the RA must verify data completeness. Data manager will upload the data to SharePoint every half a year (1/15; 7/15; by data manager).
+* Sync/QA Routine (Export):  On the day of data collection, the RA must verify data completeness. Data manager will upload the data to SharePoint every half a year (1/15; 7/15; by data manager).
 
 ### **5. Hyak (High-Performance Computing)**
 
@@ -96,7 +96,6 @@ Sync Routine:&#x20;
 
     ```
     Project_Name/
-    ├── ADMIN/                # Grant text, Schedules
     └── MANUSCRIPT/           # Drafts, Tables, Figures for papers
     ```
 
@@ -108,24 +107,20 @@ Sync Routine:&#x20;
 
 _These locations are primarily for data preservation for on-going projects_
 
-### **1. UW active SharePoint (Clinical and Demographics, Behavioral,  and MRI)**
+### **1. UW active SharePoint (Behavioral  and MRI, fang\_lab SharePoint)**
 
 * Role:&#x20;
-  * Secure, HIPAA-compliant, immutable backup for ALL unrecoverable source data (MRI + Behavioral + Clinical + Demographics).
-  * Secure, HIPAA-compliant, immutable backup for ALL unrecoverable raw data (MRI + Behavioral + Clinical + Demographics), processed to excluded HIP info and should be ready for share. &#x20;
+  * Secure, HIPAA-compliant, immutable backup for ALL unrecoverable source data (MRI + Behavioral).
+  * Secure, HIPAA-compliant, immutable backup for ALL unrecoverable raw data (MRI + Behavioral ), processed to excluded HIP info and should be ready for share. &#x20;
 * Storage Policy: "Raw Assets Only" (No derivatives, no scratch files).
 *   Contents:
 
     <pre><code>Project_Name/
     └── Full Access_Source Data and Admin/
-    │   ├── sourcedata/       # The Safety Net (DICOMs, Demographics, Clinical Accessments and Task Behavioral)
-    │        ├── <a data-footnote-ref href="#user-content-fn-1">clinical_accessments</a>
-    │        ├── <a data-footnote-ref href="#user-content-fn-2">demographics</a>
-    │        ├── MRI(<a data-footnote-ref href="#user-content-fn-3">dicom</a>)
-    │        └── <a data-footnote-ref href="#user-content-fn-4">behavioral</a>
+    │   ├── sourcedata/       # The Safety Net (DICOMs and Task Behavioral)
+    │        ├── MRI(<a data-footnote-ref href="#user-content-fn-1">dicom</a>)
+    │        └── <a data-footnote-ref href="#user-content-fn-2">behavioral</a>
     └── Limited Access_Deidentified data/
-            ├── clinical_accessments
-            ├── demographics
             ├── MRI(nifit) # The Standard (BIDS NIfTIs &#x26; TSVs)
             └── behavioral  
       
@@ -159,7 +154,7 @@ _These locations are primarily for data preservation for on-going projects_
 
 ***
 
-## Part 3: The Backups for complete projects (disaster recovery)
+## Part 3: The Backups for complete projects (disaster recovery, fang\_achive)
 
 _These locations serve as the authoritative archival copies of completed research projects, ensuring long-term data preservation, reproducibility, and disaster recovery. Archived files should remain protected from accidental modification or deletion._
 
@@ -217,10 +212,6 @@ _These locations serve as the authoritative archival copies of completed researc
 
 
 
-[^1]: [https://uwnetid.sharepoint.com/:f:/r/sites/i-focus\_fang\_lab/Shared%20Documents/i-focus/DATA/sourcedata/clinical\_accessments?csf=1\&web=1\&e=HdqSa0](https://uwnetid.sharepoint.com/:f:/r/sites/i-focus_fang_lab/Shared%20Documents/i-focus/DATA/sourcedata/clinical_accessments?csf=1\&web=1\&e=HdqSa0)
+[^1]: [https://uwnetid.sharepoint.com/:f:/r/sites/i-focus\_fang\_lab/Shared%20Documents/i-focus/DATA/sourcedata/dicom?csf=1\&web=1\&e=rdQpSy](https://uwnetid.sharepoint.com/:f:/r/sites/i-focus_fang_lab/Shared%20Documents/i-focus/DATA/sourcedata/dicom?csf=1\&web=1\&e=rdQpSy)
 
-[^2]: [https://uwnetid.sharepoint.com/:f:/r/sites/i-focus\_fang\_lab/Shared%20Documents/i-focus/DATA/sourcedata/demographics?csf=1\&web=1\&e=6PRF4e](https://uwnetid.sharepoint.com/:f:/r/sites/i-focus_fang_lab/Shared%20Documents/i-focus/DATA/sourcedata/demographics?csf=1\&web=1\&e=6PRF4e)
-
-[^3]: [https://uwnetid.sharepoint.com/:f:/r/sites/i-focus\_fang\_lab/Shared%20Documents/i-focus/DATA/sourcedata/dicom?csf=1\&web=1\&e=rdQpSy](https://uwnetid.sharepoint.com/:f:/r/sites/i-focus_fang_lab/Shared%20Documents/i-focus/DATA/sourcedata/dicom?csf=1\&web=1\&e=rdQpSy)
-
-[^4]: [https://uwnetid.sharepoint.com/:f:/r/sites/i-focus\_fang\_lab/Shared%20Documents/i-focus/DATA/sourcedata/task\_behavioral?csf=1\&web=1\&e=OSIriY](https://uwnetid.sharepoint.com/:f:/r/sites/i-focus_fang_lab/Shared%20Documents/i-focus/DATA/sourcedata/task_behavioral?csf=1\&web=1\&e=OSIriY)
+[^2]: [https://uwnetid.sharepoint.com/:f:/r/sites/i-focus\_fang\_lab/Shared%20Documents/i-focus/DATA/sourcedata/task\_behavioral?csf=1\&web=1\&e=OSIriY](https://uwnetid.sharepoint.com/:f:/r/sites/i-focus_fang_lab/Shared%20Documents/i-focus/DATA/sourcedata/task_behavioral?csf=1\&web=1\&e=OSIriY)
