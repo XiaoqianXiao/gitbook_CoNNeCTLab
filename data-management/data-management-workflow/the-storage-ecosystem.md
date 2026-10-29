@@ -180,7 +180,7 @@ _These locations serve as the authoritative archival copies of completed researc
     │   ├── sourcedata/            # Original source files
     │   │   ├── clinical_assessments/
     │   │   ├── demographics/
-    │   │   ├── mri_dicom/
+    │   │   ├── MRI/
     │   │   └── behavioral/
     │   │
     │   ├── rawdata/               # Standardized raw data (BIDS)
