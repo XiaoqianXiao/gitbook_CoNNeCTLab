@@ -11,7 +11,7 @@ Rule of Thumb:
 * Storage Locations are for safe-keeping and "Sources of Truth"
 * Active Locations are for computing, coding, and writing.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
